@@ -1,15 +1,29 @@
-package com.bridgelabz.employee_payroll.service.model;
+package com.bridgelabz.employee_payroll.repository.model;
 
 import java.time.LocalDate;
 
-public class EmployeeDTO {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+@Entity(name = "EMPLOYEE")
+public class EmployeeData {
+    @Id
+    @GeneratedValue
+    int id;
+    @Column(name = "NAME")
     String name;
+    @Column(name = "GENDER")
     String gender;
+    @Column(name = "DEPT")
     String department;
+    @Column(name = "SALARY")
     float salary;
+    @Column(name = "START_DATE")
     LocalDate startDate;
 
-    public EmployeeDTO(String name, String gender, String department, float salary, LocalDate startDate) {
+    public EmployeeData(int id,String name, String gender, String department, float salary, LocalDate startDate) {
+        this.id = id;
         this.name = name;
         this.gender = gender;
         this.department = department;
@@ -17,7 +31,16 @@ public class EmployeeDTO {
         this.startDate = startDate;
     }
 
-    public EmployeeDTO() {
+    public EmployeeData() {
+        
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -51,6 +74,13 @@ public class EmployeeDTO {
     public void setSalary(float salary) {
         this.salary = salary;
     }
+    
+    
+    @Override
+    public String toString() {
+        return "Employee name=" + name + ",\n gender=" + gender + ",\n department=" + department + ", \nsalary=" + salary
+                + ",\n startDate=" + startDate + " ";
+    }
 
     public LocalDate getStartDate() {
         return startDate;
@@ -59,5 +89,7 @@ public class EmployeeDTO {
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
-}
 
+    
+
+}

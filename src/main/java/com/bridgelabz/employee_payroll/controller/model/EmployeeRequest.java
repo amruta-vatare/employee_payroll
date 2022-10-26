@@ -1,15 +1,15 @@
-package com.bridgelabz.employee_payroll.service.model;
+package com.bridgelabz.employee_payroll.controller.model;
 
 import java.time.LocalDate;
 
-public class EmployeeDTO {
+public class EmployeeRequest {
     String name;
     String gender;
     String department;
     float salary;
     LocalDate startDate;
 
-    public EmployeeDTO(String name, String gender, String department, float salary, LocalDate startDate) {
+    public EmployeeRequest(String name, String gender, String department, float salary, LocalDate startDate) {
         this.name = name;
         this.gender = gender;
         this.department = department;
@@ -17,7 +17,7 @@ public class EmployeeDTO {
         this.startDate = startDate;
     }
 
-    public EmployeeDTO() {
+    public EmployeeRequest() {
     }
 
     public String getName() {
@@ -59,5 +59,10 @@ public class EmployeeDTO {
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
-}
 
+    @Override
+    public String toString() {
+        return "EmployeeDTO [name=" + name + ", gender=" + gender + ", department=" + department + ", salary=" + salary
+                + ", startDate=" + startDate + "]";
+    }
+}
