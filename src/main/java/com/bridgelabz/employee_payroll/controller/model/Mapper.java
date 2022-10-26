@@ -1,5 +1,8 @@
 package com.bridgelabz.employee_payroll.controller.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.bridgelabz.employee_payroll.service.model.EmployeeDTO;
 
 public class Mapper {
@@ -20,5 +23,14 @@ public class Mapper {
         emp.setSalary(employeeDTO.getSalary());
         emp.setStartDate(employeeDTO.getStartDate());
         return emp;
+    }
+    public static List<EmployeeResponse> fromService(List<EmployeeDTO> employeeDTOs){
+        List<EmployeeResponse> responses =  new ArrayList<>();
+        for (EmployeeDTO employeeDTO : employeeDTOs) {
+            EmployeeResponse emp = fromService(employeeDTO);
+        responses.add(emp);
+        }
+        
+        return responses;
     }
 }

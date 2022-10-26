@@ -1,4 +1,6 @@
 package com.bridgelabz.employee_payroll.controller;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +43,15 @@ public class EmployeePayrollController {
         return ResponseEntity
             .status(HttpStatus.OK)
             .body(employeeResponse);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<EmployeeResponse>> getAllEmployee() {
+        List<EmployeeDTO> employeeDto =  service.getAllEmployee();
+        List<EmployeeResponse> employeeResponses =  Mapper.fromService(employeeDto);
+        return ResponseEntity
+            .status(HttpStatus.OK)
+            .body(employeeResponses);
     }
     
 }

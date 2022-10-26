@@ -1,4 +1,5 @@
 package com.bridgelabz.employee_payroll.service;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,12 @@ public class EmployeePayrollService implements IEmployeePayrollService
         EmployeeData empData  = repository.findById(id).get();
         EmployeeDTO employeeDTO = Mapper.FromRepository(empData);
         return employeeDTO;
+    }
+
+    @Override
+    public List<EmployeeDTO> getAllEmployee() {
+       List<EmployeeData> list = repository.findAll();
+       List<EmployeeDTO> employees = Mapper.FromRepository(list);
+        return employees;
     }
 }
