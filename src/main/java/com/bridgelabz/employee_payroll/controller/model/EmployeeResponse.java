@@ -1,29 +1,15 @@
-package com.bridgelabz.employee_payroll.repository.model;
+package com.bridgelabz.employee_payroll.controller.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-@Entity(name = "EMPLOYEE")
-public class EmployeeData {
-    @Id
-    @GeneratedValue
-    long id;
-    @Column(name = "NAME")
+public class EmployeeResponse {
     String name;
-    @Column(name = "GENDER")
     String gender;
-    @Column(name = "DEPT")
     String department;
-    @Column(name = "SALARY")
     float salary;
-    @Column(name = "START_DATE")
     LocalDate startDate;
 
-    public EmployeeData(int id,String name, String gender, String department, float salary, LocalDate startDate) {
-        this.id = id;
+    public EmployeeResponse(String name, String gender, String department, float salary, LocalDate startDate) {
         this.name = name;
         this.gender = gender;
         this.department = department;
@@ -31,16 +17,7 @@ public class EmployeeData {
         this.startDate = startDate;
     }
 
-    public EmployeeData() {
-        
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public EmployeeResponse() {
     }
 
     public String getName() {
@@ -74,13 +51,6 @@ public class EmployeeData {
     public void setSalary(float salary) {
         this.salary = salary;
     }
-    
-    
-    @Override
-    public String toString() {
-        return "Employee name=" + name + ",\n gender=" + gender + ",\n department=" + department + ", \nsalary=" + salary
-                + ",\n startDate=" + startDate + " ";
-    }
 
     public LocalDate getStartDate() {
         return startDate;
@@ -90,6 +60,9 @@ public class EmployeeData {
         this.startDate = startDate;
     }
 
-    
-
+    @Override
+    public String toString() {
+        return "EmployeeDTO [name=" + name + ", gender=" + gender + ", department=" + department + ", salary=" + salary
+                + ", startDate=" + startDate + "]";
+    }
 }

@@ -12,4 +12,13 @@ public class Mapper {
         emp.setStartDate(employeeRequest.getStartDate());
         return emp;
     }
+    public static EmployeeResponse fromService(EmployeeDTO employeeDTO){
+        EmployeeResponse emp = new EmployeeResponse();
+        emp.setName(employeeDTO.getName());
+        emp.setDepartment(employeeDTO.getDepartment());
+        emp.setGender(employeeDTO.getGender());
+        emp.setSalary(employeeDTO.getSalary());
+        emp.setStartDate(employeeDTO.getStartDate());
+        return emp;
+    }
 }

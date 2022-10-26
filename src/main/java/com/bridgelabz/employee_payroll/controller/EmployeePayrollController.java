@@ -8,9 +8,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bridgelabz.employee_payroll.controller.model.EmployeeRequest;
+import com.bridgelabz.employee_payroll.controller.model.EmployeeResponse;
 import com.bridgelabz.employee_payroll.controller.model.Mapper;
 import com.bridgelabz.employee_payroll.service.IEmployeePayrollService;
 import com.bridgelabz.employee_payroll.service.model.EmployeeDTO;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 
@@ -20,7 +24,7 @@ public class EmployeePayrollController {
     
     @Autowired
     IEmployeePayrollService service;
-    
+
     @PostMapping("/add")
     public ResponseEntity<String> addEmployee(@RequestBody EmployeeRequest employeeRequest){
         EmployeeDTO dto = Mapper.ToService(employeeRequest);
@@ -29,4 +33,14 @@ public class EmployeePayrollController {
                 .status(HttpStatus.CREATED)
                 .body("New employee was added successfully. (CODE 201)\n");
     }
+
+    @GetMapping("get/{id}")
+    public ResponseEntity<EmployeeResponse> getEmployee(@PathVariable long id) {
+        EmployeeDTO employeeDto =  service.getEmployee(id);
+        EmployeeResponse employeeResponse =   Mapper.fromService(employeeDto);
+        return ResponseEntity
+            .status(HttpStatus.OK)
+            .body(employeeResponse);
+    }
+    
 }

@@ -13,4 +13,15 @@ public class Mapper {
         employeeData.setStartDate(employeeDTO.getStartDate());
         return employeeData;
     }
+
+    public static EmployeeDTO FromRepository(EmployeeData employeeData)
+    {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setName(employeeData.getName());
+        employeeDTO.setDepartment(employeeData.getDepartment());
+        employeeDTO.setGender(employeeData.getGender());
+        employeeDTO.setSalary(employeeData.getSalary());
+        employeeDTO.setStartDate(employeeData.getStartDate());
+        return employeeDTO;
+    }
 }
