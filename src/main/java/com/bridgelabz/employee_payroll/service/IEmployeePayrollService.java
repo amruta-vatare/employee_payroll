@@ -6,5 +6,7 @@ import com.bridgelabz.employee_payroll.service.model.EmployeeDTO;
 public interface IEmployeePayrollService {
     void addEmployee(EmployeeDTO employeeDTO);
     EmployeeDTO getEmployee(long id);
-    List<EmployeeDTO> getAllEmployee();    
+    List<EmployeeDTO> getAllEmployee();
+    void deleteEmployee(long id);
+    void updateEmployee(long id, EmployeeDTO employeeDto);    
 }

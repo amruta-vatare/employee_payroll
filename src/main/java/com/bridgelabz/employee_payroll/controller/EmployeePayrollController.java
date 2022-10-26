@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,6 +15,8 @@ import com.bridgelabz.employee_payroll.controller.model.EmployeeResponse;
 import com.bridgelabz.employee_payroll.controller.model.Mapper;
 import com.bridgelabz.employee_payroll.service.IEmployeePayrollService;
 import com.bridgelabz.employee_payroll.service.model.EmployeeDTO;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -54,4 +57,20 @@ public class EmployeePayrollController {
             .body(employeeResponses);
     }
     
+    @DeleteMapping("remove/{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable long id) {
+       service.deleteEmployee(id);
+        return ResponseEntity
+            .status(HttpStatus.OK)
+            .body("Employee was deleted successfully. (CODE 201)\n");
+    }
+
+    @PutMapping("edit/{id}")
+    public ResponseEntity<String> updateEmployee(@PathVariable long id,@RequestBody EmployeeRequest employeeRequest) {
+        EmployeeDTO employeeDto = Mapper.ToService(employeeRequest);
+       service.updateEmployee(id,employeeDto);
+        return ResponseEntity
+            .status(HttpStatus.OK)
+            .body("Employee was deleted successfully. (CODE 201)\n");
+    }
 }
