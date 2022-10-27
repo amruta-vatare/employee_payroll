@@ -1,6 +1,7 @@
 package com.bridgelabz.employee_payroll.controller.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class EmployeeResponse {
     String name;
@@ -22,6 +23,10 @@ public class EmployeeResponse {
 
     public EmployeeResponse() {
     }
+
+    public EmployeeResponse(String string, List<String> errorMsg) {
+    }
+
 
     public String getName() {
         return name;
