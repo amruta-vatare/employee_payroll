@@ -1,6 +1,8 @@
 package com.bridgelabz.employee_payroll.controller;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +33,7 @@ public class EmployeePayrollController {
     IEmployeePayrollService service;
 
     @PostMapping("/add")
-    public ResponseEntity<String> addEmployee(@RequestBody EmployeeRequest employeeRequest){
+    public ResponseEntity<String> addEmployee(@RequestBody @Valid EmployeeRequest employeeRequest){
         EmployeeDTO dto = Mapper.ToService(employeeRequest);
         service.addEmployee(dto);        
         return ResponseEntity

@@ -8,14 +8,17 @@ public class EmployeeResponse {
     String department;
     float salary;
     LocalDate startDate;
+    String email;
 
-    public EmployeeResponse(String name, String gender, String department, float salary, LocalDate startDate) {
+    public EmployeeResponse(String name, String gender, String department, float salary, LocalDate startDate,String email) {
         this.name = name;
         this.gender = gender;
         this.department = department;
         this.salary = salary;
         this.startDate = startDate;
-    }
+        this.email = email;
+    }   
+
 
     public EmployeeResponse() {
     }
@@ -60,9 +63,23 @@ public class EmployeeResponse {
         this.startDate = startDate;
     }
 
+    
+    public String getEmail() {
+        return email;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
     @Override
     public String toString() {
-        return "EmployeeDTO [name=" + name + ", gender=" + gender + ", department=" + department + ", salary=" + salary
-                + ", startDate=" + startDate + "]";
+        return "EmployeeResponse [name=" + name + ", gender=" + gender + ", department=" + department + ", salary="
+                + salary + ", startDate=" + startDate + ", email=" + email + "]";
     }
+    
+    
+
 }

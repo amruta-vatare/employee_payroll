@@ -21,14 +21,17 @@ public class EmployeeData {
     float salary;
     @Column(name = "START_DATE")
     LocalDate startDate;
+    @Column(name="EMAILID")
+    String email;
 
-    public EmployeeData(int id,String name, String gender, String department, float salary, LocalDate startDate) {
+    public EmployeeData(int id,String name, String gender, String department, float salary, LocalDate startDate,String email) {
         this.id = id;
         this.name = name;
         this.gender = gender;
         this.department = department;
         this.salary = salary;
         this.startDate = startDate;
+        this.email = email;
     }
 
     public EmployeeData() {
@@ -75,13 +78,6 @@ public class EmployeeData {
         this.salary = salary;
     }
     
-    
-    @Override
-    public String toString() {
-        return "Employee name=" + name + ",\n gender=" + gender + ",\n department=" + department + ", \nsalary=" + salary
-                + ",\n startDate=" + startDate + " ";
-    }
-
     public LocalDate getStartDate() {
         return startDate;
     }
@@ -89,6 +85,16 @@ public class EmployeeData {
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    
 
     
 

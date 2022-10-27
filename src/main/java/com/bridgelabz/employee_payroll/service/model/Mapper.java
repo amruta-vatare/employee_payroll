@@ -14,6 +14,7 @@ public class Mapper {
         employeeData.setGender(employeeDTO.getGender());
         employeeData.setSalary(employeeDTO.getSalary());
         employeeData.setStartDate(employeeDTO.getStartDate());
+        employeeData.setEmail(employeeDTO.getEmail());
         return employeeData;
     }
 
@@ -25,6 +26,7 @@ public class Mapper {
         employeeDTO.setGender(employeeData.getGender());
         employeeDTO.setSalary(employeeData.getSalary());
         employeeDTO.setStartDate(employeeData.getStartDate());
+        employeeDTO.setEmail(employeeData.getEmail());
         return employeeDTO;
     }
     
@@ -38,6 +40,7 @@ public class Mapper {
             employeeDTO.setGender(employeeData.getGender());
             employeeDTO.setSalary(employeeData.getSalary());
             employeeDTO.setStartDate(employeeData.getStartDate());
+            employeeDTO.setEmail(employeeData.getEmail());
             employees.add(employeeDTO);
         }
         return employees;

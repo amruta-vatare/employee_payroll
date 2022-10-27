@@ -3,7 +3,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bridgelabz.employee_payroll.controller.model.EmployeeRequest;
 import com.bridgelabz.employee_payroll.repository.IEmployeePayrollRepository;
 import com.bridgelabz.employee_payroll.repository.model.EmployeeData;
 import com.bridgelabz.employee_payroll.service.model.EmployeeDTO;
