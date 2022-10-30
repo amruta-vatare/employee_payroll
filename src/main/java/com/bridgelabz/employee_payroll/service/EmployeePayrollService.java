@@ -3,6 +3,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bridgelabz.employee_payroll.advice.EmployeePayrollException;
 import com.bridgelabz.employee_payroll.repository.IEmployeePayrollRepository;
 import com.bridgelabz.employee_payroll.repository.model.EmployeeData;
 import com.bridgelabz.employee_payroll.service.model.EmployeeDTO;
@@ -21,8 +22,8 @@ public class EmployeePayrollService implements IEmployeePayrollService
 
     @Override
     public EmployeeDTO getEmployee(long id) {
-        EmployeeData empData  = repository.findById(id).get();
-        EmployeeDTO employeeDTO = Mapper.FromRepository(empData);
+        List<EmployeeData> list = repository.findAll();
+        EmployeeDTO employeeDTO = Mapper.FromRepository(list.stream().filter(empData -> empData.getId() == id).findFirst().orElseThrow(()-> new EmployeePayrollException("Employee not found")));
         return employeeDTO;
     }
 

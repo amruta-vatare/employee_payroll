@@ -28,6 +28,10 @@ public class EmployeeResponse {
     }
 
 
+    public EmployeeResponse(String string, String message) {
+    }
+
+
     public String getName() {
         return name;
     }
