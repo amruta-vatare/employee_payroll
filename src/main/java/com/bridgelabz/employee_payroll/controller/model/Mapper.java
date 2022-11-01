@@ -9,21 +9,23 @@ public class Mapper {
     public static EmployeeDTO ToService(EmployeeRequest employeeRequest){
         EmployeeDTO emp = new EmployeeDTO();
         emp.setName(employeeRequest.getName());
-        emp.setDepartment(employeeRequest.getDepartment());
         emp.setGender(employeeRequest.getGender());
         emp.setSalary(employeeRequest.getSalary());
         emp.setStartDate(employeeRequest.getStartDate());
         emp.setEmail(employeeRequest.getEmail());
+        emp.setProfile(employeeRequest.getProfile());
+        emp.setDepartments(employeeRequest.getDepartments());
         return emp;
     }
     public static EmployeeResponse fromService(EmployeeDTO employeeDTO){
         EmployeeResponse emp = new EmployeeResponse();
         emp.setName(employeeDTO.getName());
-        emp.setDepartment(employeeDTO.getDepartment());
         emp.setGender(employeeDTO.getGender());
         emp.setSalary(employeeDTO.getSalary());
         emp.setStartDate(employeeDTO.getStartDate());
         emp.setEmail(employeeDTO.getEmail());
+        emp.setProfile(employeeDTO.getProfile());
+        emp.setDepartments(employeeDTO.getDepartments());
         return emp;
     }
     public static List<EmployeeResponse> fromService(List<EmployeeDTO> employeeDTOs){

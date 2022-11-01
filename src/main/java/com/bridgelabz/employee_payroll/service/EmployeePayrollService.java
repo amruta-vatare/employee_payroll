@@ -45,9 +45,11 @@ public class EmployeePayrollService implements IEmployeePayrollService
         EmployeeData employeeData = repository.findById(id).get();
         employeeData.setName(employeeDto.getName());
         employeeData.setGender(employeeDto.getGender());
-        employeeData.setDepartment(employeeDto.getDepartment());
         employeeData.setSalary(employeeDto.getSalary());
         employeeData.setStartDate(employeeDto.getStartDate());
+        employeeData.setEmail(employeeDto.getEmail());
+        employeeData.setProfile(employeeDto.getProfile());
+        employeeData.setDepartments(employeeDto.getDepartments());
         repository.save(employeeData);
     }
 }
