@@ -8,5 +8,6 @@ public interface IEmployeePayrollService {
     EmployeeDTO getEmployee(long id);
     List<EmployeeDTO> getAllEmployee();
     void deleteEmployee(long id);
-    void updateEmployee(long id, EmployeeDTO employeeDto);    
+    void updateEmployee(long id, EmployeeDTO employeeDto);   
+    List<EmployeeDTO> findEmployeesByDepartments(String department); 
 }

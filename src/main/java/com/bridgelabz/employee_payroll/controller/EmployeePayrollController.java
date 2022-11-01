@@ -75,4 +75,11 @@ public class EmployeePayrollController {
             .status(HttpStatus.OK)
             .body("Employee was deleted successfully. (CODE 201)\n");
     }
+
+    @GetMapping("department/{department}")
+    public ResponseEntity<List<EmployeeResponse>> findEmployeeByDepartment(@PathVariable String department){
+        List<EmployeeDTO> list = service.findEmployeesByDepartments(department);
+        List<EmployeeResponse> responses = Mapper.fromService(list);
+        return ResponseEntity.status(HttpStatus.OK).body(responses);
+    }
 }

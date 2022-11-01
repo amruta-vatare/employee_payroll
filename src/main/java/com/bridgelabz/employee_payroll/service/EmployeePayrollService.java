@@ -23,7 +23,7 @@ public class EmployeePayrollService implements IEmployeePayrollService
     @Override
     public EmployeeDTO getEmployee(long id) {
         List<EmployeeData> list = repository.findAll();
-        EmployeeDTO employeeDTO = Mapper.FromRepository(list.stream().filter(empData -> empData.getId() == id).findFirst().orElseThrow(()-> new EmployeePayrollException("Employee not found")));
+        EmployeeDTO employeeDTO = Mapper.FromRepository(list.stream().filter(empData -> empData.getEmployee_id() == id).findFirst().orElseThrow(()-> new EmployeePayrollException("Employee not found")));
         return employeeDTO;
     }
 
@@ -51,5 +51,12 @@ public class EmployeePayrollService implements IEmployeePayrollService
         employeeData.setProfile(employeeDto.getProfile());
         employeeData.setDepartments(employeeDto.getDepartments());
         repository.save(employeeData);
+    }
+
+    @Override
+    public List<EmployeeDTO> findEmployeesByDepartments(String department) {
+        List<EmployeeData> employeeData = repository.findEmployeesByDepartments(department);
+        List<EmployeeDTO> employeesByDept = Mapper.FromRepository(employeeData);
+        return employeesByDept;
     }
 }

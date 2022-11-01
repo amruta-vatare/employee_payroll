@@ -18,7 +18,7 @@ import lombok.Data;
 public class EmployeeData {
     @Id
     @GeneratedValue
-    long id;
+    long employee_id;
 
     @Column(name = "NAME")
     String name;
@@ -44,7 +44,7 @@ public class EmployeeData {
     List<String>departments;
 
     public EmployeeData(int id,String name, String gender, float salary, LocalDate startDate, String email, String profile, List<String> departments) {
-        this.id = id;
+        this.employee_id = id;
         this.name = name;
         this.gender = gender;
         this.salary = salary;
