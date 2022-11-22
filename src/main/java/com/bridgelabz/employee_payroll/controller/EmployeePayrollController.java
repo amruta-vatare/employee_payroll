@@ -18,6 +18,7 @@ import com.bridgelabz.employee_payroll.controller.model.Mapper;
 import com.bridgelabz.employee_payroll.service.IEmployeePayrollService;
 import com.bridgelabz.employee_payroll.service.model.EmployeeDTO;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @RequestMapping("/emp")
 @Controller
+@CrossOrigin()
 public class EmployeePayrollController {
     
     @Autowired
