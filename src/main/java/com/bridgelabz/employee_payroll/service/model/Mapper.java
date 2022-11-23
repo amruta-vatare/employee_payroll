@@ -29,6 +29,7 @@ public class Mapper {
         employeeDTO.setEmail(employeeData.getEmail());
         employeeDTO.setProfile(employeeData.getProfile());
         employeeDTO.setDepartments(employeeData.getDepartments());
+        employeeDTO.setId(employeeData.getEmployee_id());
         return employeeDTO;
     }
     
@@ -44,6 +45,7 @@ public class Mapper {
             employeeDTO.setEmail(employeeData.getEmail());
             employeeDTO.setProfile(employeeData.getProfile());
             employeeDTO.setDepartments(employeeData.getDepartments());
+            employeeDTO.setId(employeeData.getEmployee_id());
             employees.add(employeeDTO);
         }
         return employees;

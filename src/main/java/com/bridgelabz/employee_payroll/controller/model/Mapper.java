@@ -26,6 +26,7 @@ public class Mapper {
         emp.setEmail(employeeDTO.getEmail());
         emp.setProfile(employeeDTO.getProfile());
         emp.setDepartments(employeeDTO.getDepartments());
+        emp.setId(employeeDTO.getId());
         return emp;
     }
     public static List<EmployeeResponse> fromService(List<EmployeeDTO> employeeDTOs){

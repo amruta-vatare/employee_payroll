@@ -75,7 +75,7 @@ public class EmployeePayrollController {
        service.updateEmployee(id,employeeDto);
         return ResponseEntity
             .status(HttpStatus.OK)
-            .body("Employee was deleted successfully. (CODE 201)\n");
+            .body("Employee was updated successfully. (CODE 200)\n");
     }
 
     @GetMapping("department/{department}")

@@ -13,8 +13,9 @@ public class EmployeeResponse {
     String email;
     String profile;
     List<String> departments;
+    long id;
 
-    public EmployeeResponse(String name, String gender, float salary, LocalDate startDate, String email, String profile, List<String>departments) {
+    public EmployeeResponse(String name, String gender, float salary, LocalDate startDate, String email, String profile, List<String>departments, long id) {
         this.name = name;
         this.gender = gender;
         this.salary = salary;
@@ -22,6 +23,7 @@ public class EmployeeResponse {
         this.email = email;
         this.profile = profile;
         this.departments = departments;
+        this.setId(id);
     }   
 
 
